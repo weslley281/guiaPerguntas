@@ -7,8 +7,8 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
-app.get('/parametros/', (req, res) => {
-  const name = 'eu';
+app.get('/parametros/:nome?', (req, res) => {
+  const name = req.params.nome ? req.params.nome : 'eu';
   const lang = 'portugues do brasil';
 
   res.render('index', { name, lang, company: 'Baobá Brasil' });
