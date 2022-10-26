@@ -16,5 +16,11 @@
       <li>Idoma: <%= lang%></li>
       <li>Empresa: <%= company%></li>
     </ul>
+
+    <% if(showMessage){ %>
+    <p>Deu certo</p>
+    <% }else{ %>
+    <p>Isso é uma mensagem de erro</p>
+    <% } %>
   </body>
 </html>

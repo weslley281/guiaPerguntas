@@ -10,8 +10,9 @@ app.get('/', (req, res) => {
 app.get('/parametros/:nome?', (req, res) => {
   const name = req.params.nome ? req.params.nome : 'eu';
   const lang = 'portugues do brasil';
+  const showMessage = true;
 
-  res.render('index', { name, lang, company: 'Baobá Brasil' });
+  res.render('index', { name, lang, company: 'Baobá Brasil', showMessage });
 });
 
 const port = 3333;
