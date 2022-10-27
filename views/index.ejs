@@ -17,5 +17,28 @@
       <li>Idoma: <%= lang%></li>
       <li>Empresa: <%= company%></li>
     </ul>
+
+    <% if(showMessage){ %>
+    <p>Deu certo</p>
+    <% }else{ %>
+    <p>Isso é uma mensagem de erro</p>
+    <% } %>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Idade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% clients.forEach((client) => { %>
+        <tr>
+          <td><%=client.name %></td>
+          <td><%=client.age %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
   </body>
 </html>
