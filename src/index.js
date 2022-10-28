@@ -8,6 +8,10 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
+app.get('/ask', (req, res) => {
+  res.render('ask');
+});
+
 app.get('/parametros/:nome?', (req, res) => {
   const name = req.params.nome ? req.params.nome : 'eu';
   const lang = 'portugues do brasil';
