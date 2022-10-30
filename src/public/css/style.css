@@ -1,0 +1,18 @@
+body {
+  background-color: whitesmoke;
+}
+
+.backgrounPrincipal {
+  background-color: blueviolet;
+}
+
+h3 {
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+label {
+  color: whitesmoke;
+  font-size: large;
+  font-weight: 400;
+}
