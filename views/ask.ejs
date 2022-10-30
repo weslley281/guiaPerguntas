@@ -1,31 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guia perguntas</title>
-    <link rel="stylesheet" href="/css/bootstrap.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <script src="js/bootstrap.bundle.js"></script>
-    <script src="js/bootstrap.js"></script>
-  </head>
+  <%- include('partials/header.ejs')%>
   <body>
     <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Home</a>
-        <div class="collapse navbar-collapse" id="textoNavbar">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/ask">Perguntas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Preços</a>
-            </li>
-          </ul>
-          <span class="navbar-text"> Texto navbar com um elemento inline </span>
-        </div>
-      </nav>
+      <%- include('partials/navbar.ejs')%>
 
       <div class="card mt-2 backgrounPrincipal">
         <div class="card-header"><h3>Realizar Pergunta:</h3></div>
