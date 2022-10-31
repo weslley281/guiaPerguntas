@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 
 app.set('view engine', 'ejs');
 app.use(express.static('./src/public'));
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.render('home');
@@ -10,6 +14,12 @@ app.get('/', (req, res) => {
 
 app.get('/ask', (req, res) => {
   res.render('ask');
+});
+
+app.post('/saveask', (req, res) => {
+  const title = req.body.title;
+  const description = req.body.description;
+  res.send(`O titulo é ${title} e a descrição é ${description}`);
 });
 
 app.get('/parametros/:nome?', (req, res) => {

@@ -8,15 +8,21 @@
       <div class="card mt-2 backgrounPrincipal">
         <div class="card-header"><h3>Realizar Pergunta:</h3></div>
         <div class="card-body">
-          <form>
+          <form method="POST" action="/saveask">
             <div class="form-group mb-2">
               <label>Titulo:</label>
-              <input class="form-control" type="text" placeholder="Título" />
+              <input
+                name="title"
+                class="form-control"
+                type="text"
+                placeholder="Título"
+              />
             </div>
 
             <div class="form-group mb-2">
               <label>Escreva sua pergunta:</label>
               <textarea
+                name="description"
                 class="form-control"
                 name=""
                 placeholder="Escreva a sua pergunta"
