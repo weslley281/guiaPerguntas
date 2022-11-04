@@ -1,8 +1,21 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const connection = require('./database/database');
 
+//banco de dados
+connection
+  .authenticate()
+  .then(() => {
+    console.log('Conexão feita com o banco de dados!');
+  })
+  .catch((msgErro) => {
+    console.log(msgErro);
+  });
+
+//define o ejs
 app.set('view engine', 'ejs');
+//define os arquivos estáticos
 app.use(express.static('./src/public'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
