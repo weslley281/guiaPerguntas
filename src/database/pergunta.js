@@ -1,19 +1,25 @@
 const Sequelize = require('sequelize');
 const connection = require('./database');
 
-const Pergunta = connection.define('perguntas', {
-  pergunta_id: {
+const Ask = connection.define('ask', {
+  ask_id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true,
     allowNull: false,
   },
-  titulo: {
+  title: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  descricao: {
+  description: {
     type: Sequelize.TEXT,
     allowNull: false,
   },
 });
+
+Ask.sync({ force: false }).then(() => {
+  console.log('Tabela de perguntas criada');
+});
+
+module.exports = Ask;

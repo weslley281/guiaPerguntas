@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const connection = require('./database/database');
+const AskModel = require('./database/pergunta');
 
 //banco de dados
 connection
@@ -32,7 +33,16 @@ app.get('/ask', (req, res) => {
 app.post('/saveask', (req, res) => {
   const title = req.body.title;
   const description = req.body.description;
-  res.send(`O titulo é ${title} e a descrição é ${description}`);
+  AskModel.create({
+    title: title,
+    description: description,
+  })
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch((msgErro) => {
+      console.log(msgErro);
+    });
 });
 
 app.get('/parametros/:nome?', (req, res) => {
