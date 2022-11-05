@@ -6,7 +6,23 @@
       <%- include('partials/navbar.ejs')%>
       <h1>Guia Perguntas</h1>
       <hr />
+
       <h3>Lista de perguntas</h3>
+
+      <div class="row">
+        <% questions.forEach(question => { %>
+        <div class="card backgrounPrincipal mb-2">
+          <div class="card-body">
+            <h3><%= question.title %></h3>
+          </div>
+          <div class="card-footer">
+            <a href="/ask/<%= question.ask_id %>"
+              ><button class="btn btn-outline-light">Responder</button></a
+            >
+          </div>
+        </div>
+        <% }) %>
+      </div>
     </div>
   </body>
 </html>

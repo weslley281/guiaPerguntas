@@ -23,7 +23,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-  res.render('home');
+  AskModel.findAll({ order: [['ask_id', 'DESC']] }).then((questions) => {
+    res.render('home', {
+      questions: questions,
+    });
+  });
 });
 
 app.get('/ask', (req, res) => {
@@ -43,27 +47,6 @@ app.post('/saveask', (req, res) => {
     .catch((msgErro) => {
       console.log(msgErro);
     });
-});
-
-app.get('/parametros/:nome?', (req, res) => {
-  const name = req.params.nome ? req.params.nome : 'eu';
-  const lang = 'portugues do brasil';
-  const showMessage = true;
-
-  const clients = [
-    { name: 'Fulano de tal', age: 24 },
-    { name: 'Cicrano de tal', age: 26 },
-    { name: 'Deltrano de tal', age: 28 },
-    { name: 'Beltrana de tal', age: 32 },
-  ];
-
-  res.render('index', {
-    name,
-    lang,
-    company: 'Baobá Brasil',
-    showMessage,
-    clients,
-  });
 });
 
 const port = 3333;
