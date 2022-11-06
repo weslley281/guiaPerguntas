@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
   AskModel.findAll({ order: [['ask_id', 'DESC']] }).then((questions) => {
     res.render('home', {
-      questions: questions,
+      questions,
     });
   });
 });
@@ -37,10 +37,10 @@ app.get('/asks', (req, res) => {
 app.get('/ask/:ask_id', (req, res) => {
   const ask_id = req.params.ask_id;
   AskModel.findOne({ where: { ask_id: ask_id } }).then((question) => {
-    if (question !== null) {
-      res.render('ask');
+    if (question !== undefined) {
+      res.render('ask', { question });
     } else {
-      res.render('home');
+      res.render('/');
     }
   });
 });
@@ -49,8 +49,8 @@ app.post('/saveask', (req, res) => {
   const title = req.body.title;
   const description = req.body.description;
   AskModel.create({
-    title: title,
-    description: description,
+    title,
+    description,
   })
     .then(() => {
       res.redirect('/');
