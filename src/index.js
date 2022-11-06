@@ -30,8 +30,19 @@ app.get('/', (req, res) => {
   });
 });
 
-app.get('/ask', (req, res) => {
-  res.render('ask');
+app.get('/asks', (req, res) => {
+  res.render('asks');
+});
+
+app.get('/ask/:ask_id', (req, res) => {
+  const ask_id = req.params.ask_id;
+  AskModel.findOne({ where: { ask_id: ask_id } }).then((question) => {
+    if (question !== null) {
+      res.render('ask');
+    } else {
+      res.render('home');
+    }
+  });
 });
 
 app.post('/saveask', (req, res) => {
